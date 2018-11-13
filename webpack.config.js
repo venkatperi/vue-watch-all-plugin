@@ -15,7 +15,6 @@ const modules = {
   misc: true,
   dev: true,
   prod: true,
-  copy: { args: [[{ from: 'vue-watch-all-plugin.d.ts' }]] },
 }
 
 const variants = [

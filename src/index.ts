@@ -11,7 +11,7 @@ declare global {
     }
 }
 
-declare module 'vue' {
+declare module 'vue/types/vue' {
     export interface Vue {
         $watchAll(props: string[], callback: WatchAllCallback): void
     }

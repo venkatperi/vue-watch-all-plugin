@@ -1,6 +1,6 @@
 {
   "name": "vue-watch-all-plugin",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "dist/vue-watch-all-plugin.js",
   "unpkg": "dist/umd/vue-watch-all-plugin.js",
@@ -10,7 +10,7 @@
     "build:ts": "tsc",
     "build:webpack": "NODE_ENV=production webpack --no-modules --display minimal",
     "prebuild": "npm run clean",
-    "postbuild":"cp vue-watch-all-plugin.d.ts dist",
+    "postbuild": "cp vue-watch-all-plugin.d.ts dist",
     "build": "npm run build:webpack",
     "prepare": "npm run build"
   },

@@ -1,5 +1,5 @@
 import { VueConstructor } from "vue"
-import VueWatchAllPlugin from './VueWatchAll'
+import VueWatchAllPlugin, { WatchAllCallback } from './VueWatchAll'
 
 // noinspection JSUnusedGlobalSymbols
 export default VueWatchAllPlugin
@@ -8,6 +8,12 @@ declare global {
     // noinspection JSUnusedGlobalSymbols
     interface Window {
         Vue: VueConstructor
+    }
+}
+
+declare module 'vue' {
+    export interface Vue {
+        $watchAll(props: string[], callback: WatchAllCallback): void
     }
 }
 

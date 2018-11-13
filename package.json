@@ -10,7 +10,7 @@
     "build:ts": "tsc",
     "build:webpack": "NODE_ENV=production webpack --no-modules --display minimal",
     "prebuild": "npm run clean",
-    "postbuild": "cp vue-watch-all-plugin.d.ts dist",
+    "xpostbuild": "cp vue-watch-all-plugin.d.ts dist",
     "build": "npm run build:webpack",
     "prepare": "npm run build"
   },

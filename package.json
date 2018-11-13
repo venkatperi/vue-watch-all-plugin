@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/vue-watch-all-plugin.js",
   "unpkg": "dist/umd/vue-watch-all-plugin.js",
+  "types":"dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
     "build:ts": "tsc",

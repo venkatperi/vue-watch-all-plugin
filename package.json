@@ -1,6 +1,6 @@
 {
   "name": "vue-watch-all-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "dist/vue-watch-all-plugin.js",
   "unpkg": "dist/umd/vue-watch-all-plugin.js",

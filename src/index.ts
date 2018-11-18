@@ -17,7 +17,7 @@ declare module 'vue/types/vue' {
     }
 }
 
-if (window && window.Vue) {
+if (typeof window !== 'undefined' && window.Vue) {
     window.Vue.use(VueWatchAllPlugin)
 }
 

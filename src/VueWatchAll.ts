@@ -18,18 +18,42 @@
 //  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
 //  OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 //  USE OR OTHER DEALINGS IN THE SOFTWARE.
-import { PluginObject, VueConstructor } from 'vue'
+import { PluginObject, VueConstructor, WatchOptions } from 'vue'
+
+export type PropSpec = string | {
+    name: string,
+    options?: WatchOptions
+}
+
+export type PropList = Array<PropSpec>
 
 export type WatchAllCallback = (name: string, n: any, o: any) => void
 
 const plugin: PluginObject<any> = {
     install(Vue: VueConstructor) {
+
+        /**
+         *  `$watchAll()` is a instance convenience method to easily watch
+         *  a list of properties. Internally, `$watchAll` registers a
+         *  watcher for each property. When a property changes, the supplied
+         *  callback `callback` is called with the property name and
+         *  the current and previous values of the watched property.
+         *
+         * @param props - property names with optional options
+         * @param callback -- invoked with a property changes
+         */
         Vue.prototype.$watchAll =
-            function (props: string[], callback: WatchAllCallback) {
+            function (props: PropList, callback: WatchAllCallback) {
                 for (const prop of props) {
-                    this.$watch(prop, function (n: any, o: any) {
-                        callback(name, n, o)
-                    });
+                    const [name, opts] = typeof prop === 'string'
+                                         ? [prop, undefined]
+                                         : [prop.name, prop.options]
+
+                    const cb = function (newValue: any, oldValue: any) {
+                        callback(name, newValue, oldValue)
+                    }
+
+                    this.$watch(prop, cb, opts);
                 }
             }
     }

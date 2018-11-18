@@ -12,7 +12,10 @@
     "noImplicitReturns": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
-    "forceConsistentCasingInFileNames": false
+    "forceConsistentCasingInFileNames": false,
+    "lib": [
+      "es2017", "dom"
+    ]
   },
   "include": [
     "src/**/*"

@@ -1,0 +1,23 @@
+/// <reference types="@venkatperi/vue-shims"/>
+import { createLocalVue, mount } from "@vue/test-utils"
+import { expect } from 'chai'
+import { before, describe, it } from 'mocha'
+// import VueWatchAllPlugin from '../src'
+import Counter from './fixtures/Counter'
+
+
+let localVue = createLocalVue()
+let wrapper = mount(Counter, {localVue})
+
+describe('watch all / counter', () => {
+    before(() => {
+        // localVue = createLocalVue()
+        // localVue.use(VueWatchAllPlugin)
+        // vm = wrapper.vm
+    })
+
+    it('$watchAll is an instance method', () => {
+        expect(wrapper).to.not.be.undefined
+    })
+
+})
